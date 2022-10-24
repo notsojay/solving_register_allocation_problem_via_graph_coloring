@@ -1,0 +1,3 @@
+out
+gtest/graphs/*.dot
+gtest/graphs/*.png
