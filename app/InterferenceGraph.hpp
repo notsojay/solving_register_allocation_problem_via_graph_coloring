@@ -155,7 +155,7 @@ void InterferenceGraph<T>::removeVertex(const T &vertex)
   setOfIndex.erase(vertex);
   std::swap(setOfVertices.at(index), setOfVertices.back());
   setOfVertices.pop_back();
-  st:swap(adjacencyMatrix.at(index), adjacencyMatrix.back());
+  std::swap(adjacencyMatrix.at(index), adjacencyMatrix.back());
   adjacencyMatrix.pop_back();
   for(auto &i : adjacencyMatrix)
   {
