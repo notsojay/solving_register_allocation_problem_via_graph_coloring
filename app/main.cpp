@@ -6,15 +6,21 @@
 
 int main() 
 {
-	const auto &GRAPH = "pairs.csv";
-	const auto NUM_REGS = 2;
+	const auto &GRAPH = "small_bipartite.csv";
+	const auto NUM_REGS = 1;
 	
 	const auto &allocation = assignRegisters(GRAPH, NUM_REGS);
-	for(const auto &i : allocation)
-	{
-		std::cout << i.first << " " << i.second << "\n";
-	}
-	IGWriter::write(CSVReader::load(GRAPH), "pairs.dot", allocation);
+	IGWriter::write(CSVReader::load(GRAPH), "small_bipartite_fail.dot", allocation);
+	
+//	const auto &GRAPH = "pairs.csv";
+//	const auto NUM_REGS = 2;
+//	
+//	const auto &allocation = assignRegisters(GRAPH, NUM_REGS);
+//	for(const auto &i : allocation)
+//	{
+//		std::cout << i.first << " " << i.second << "\n";
+//	}
+//	IGWriter::write(CSVReader::load(GRAPH), "pairs.dot", allocation);
 	
 	//EXPECT_TRUE(verifyAllocation(GRAPH, NUM_REGS, allocation));
 	

@@ -28,7 +28,8 @@ RegisterAssignment proj6::assignRegisters(const std::string &path_to_graph, int 
     if(registersCount >= limitOfRegisters) return {};
     if(currentRegister > num_registers) currentRegister = 1;
     Variable currentVertex = sortedVertices.at(i).second;
-    if(!result.count(currentVertex))
+    if(!result.count(currentVertex) &&
+        checkAdjacentVertices(ig, currentVertex, currentRegister, result))
     {
         result[currentVertex] = currentRegister;
     }
