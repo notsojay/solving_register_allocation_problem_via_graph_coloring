@@ -127,7 +127,7 @@ template <typename T>
 void InterferenceGraph<T>::removeEdge(const T &v, const T &w) 
 {
   size_t vIndex = LocateVertexIndex(v), wIndex = LocateVertexIndex(w);
-  if(adjacencyMatrix.at(vIndex).at(wIndex) != 0 || adjacencyMatrix.at(wIndex).at(vIndex) != 0)
+  if(adjacencyMatrix.at(vIndex).at(wIndex) == 0 || adjacencyMatrix.at(wIndex).at(vIndex) == 0)
     throw UnknownEdgeException(v, w);
   adjacencyMatrix.at(vIndex).at(wIndex) = 0;
   adjacencyMatrix.at(wIndex).at(vIndex) = 0;
