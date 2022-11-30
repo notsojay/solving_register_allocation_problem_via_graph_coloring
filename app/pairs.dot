@@ -1,0 +1,33 @@
+graph {
+graph [layout=circo]
+20 [style="filled", fillcolor=lightpink]
+18 [style="filled", fillcolor=lightpink]
+17 [style="filled", fillcolor=lightsalmon]
+16 [style="filled", fillcolor=lightpink]
+15 [style="filled", fillcolor=lightsalmon]
+13 [style="filled", fillcolor=lightpink]
+12 [style="filled", fillcolor=lightpink]
+19 [style="filled", fillcolor=lightsalmon]
+11 [style="filled", fillcolor=lightsalmon]
+14 [style="filled", fillcolor=lightsalmon]
+2 [style="filled", fillcolor=lightpink]
+9 [style="filled", fillcolor=lightpink]
+6 [style="filled", fillcolor=lightpink]
+7 [style="filled", fillcolor=lightpink]
+1 [style="filled", fillcolor=lightsalmon]
+5 [style="filled", fillcolor=lightsalmon]
+10 [style="filled", fillcolor=lightsalmon]
+8 [style="filled", fillcolor=lightsalmon]
+4 [style="filled", fillcolor=lightpink]
+3 [style="filled", fillcolor=lightsalmon]
+20 -- 19
+18 -- 17
+16 -- 15
+13 -- 14
+12 -- 11
+2 -- 1
+9 -- 10
+6 -- 5
+7 -- 8
+4 -- 3
+}

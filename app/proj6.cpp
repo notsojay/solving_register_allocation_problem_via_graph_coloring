@@ -25,7 +25,8 @@ RegisterAssignment proj6::assignRegisters(const std::string &path_to_graph, int 
   for(size_t i = 0; i < sortedVertices.size(); ++i)
   {
     if(result.size() == sortedVertices.size()) return result;
-    if(registersCount >= limitOfRegisters || currentRegister > num_registers) return {};
+    if(registersCount >= limitOfRegisters) return {};
+    if(currentRegister > num_registers) currentRegister = 1;
     Variable currentVertex = sortedVertices.at(i).second;
     if(!result.count(currentVertex))
     {
@@ -38,13 +39,14 @@ RegisterAssignment proj6::assignRegisters(const std::string &path_to_graph, int 
     for(size_t j = 0; j < sortedVertices.size(); ++j)
     {
       if(i == j) continue;
-      if(!ig.interferes(currentVertex, sortedVertices.at(j).second) &&
-        !result.count(sortedVertices.at(j).second))
+      if(isRegistersable(ig, currentVertex, sortedVertices.at(j).second, result) && 
+        checkAdjacentVertices(ig, sortedVertices.at(j).second, currentRegister, result))
       {
         result[sortedVertices.at(j).second] = currentRegister;
       }
     }
     ++currentRegister;
+    ++registersCount;
   }
   if(result.size() == sortedVertices.size()) return result;
   return {};
@@ -65,4 +67,22 @@ std::vector<std::pair<unsigned, Variable>> proj6::getSortedVertices(const Interf
   };
   std::sort(sortedVertices.begin(), sortedVertices.end(), greater);
   return sortedVertices;
+}
+
+bool proj6::isRegistersable(const InterferenceGraph<Variable> &ig, const Variable &vertexA, const Variable &vertexB, const RegisterAssignment &result)
+{
+  return !ig.interferes(vertexA, vertexB) && !result.count(vertexB);
+}
+
+bool proj6::checkAdjacentVertices(const InterferenceGraph<Variable> &ig, const Variable &vertex, const int &currentRegister, const RegisterAssignment &result)
+{
+  std::unordered_set<Variable> adjVertices = ig.neighbors(vertex);
+  for(const auto &i : adjVertices)
+  {
+    if(result.count(i))
+    {
+      if(result.find(i)->second == currentRegister) return false;
+    }
+  }
+  return true;
 }

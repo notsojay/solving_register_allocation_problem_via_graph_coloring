@@ -17,6 +17,10 @@ RegisterAssignment assignRegisters(const std::string &path_to_graph,
 
 std::vector<std::pair<unsigned, Variable>> getSortedVertices(const InterferenceGraph<Variable> &ig);
 
+bool isRegistersable(const InterferenceGraph<Variable> &ig, const Variable &vertexA, const Variable &vertexB, const RegisterAssignment &result);
+
+bool checkAdjacentVertices(const InterferenceGraph<Variable> &ig, const Variable &vertex, const int &currentRegister, const RegisterAssignment &result);
+
 }; // namespace proj6
 
 #endif
