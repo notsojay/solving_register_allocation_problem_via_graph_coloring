@@ -1,0 +1,30 @@
+graph {
+graph [layout=circo]
+b [style="filled", fillcolor=lightpink]
+c [style="filled", fillcolor=lightpink]
+e [style="filled", fillcolor=lightsalmon]
+f [style="filled", fillcolor=lightpink]
+a [style="filled", fillcolor=lightseagreen]
+i [style="filled", fillcolor=lightpink]
+h [style="filled", fillcolor=lightsalmon]
+k [style="filled", fillcolor=lightpink]
+d [style="filled", fillcolor=lightsalmon]
+j [style="filled", fillcolor=lightseagreen]
+g [style="filled", fillcolor=lightseagreen]
+b -- d
+b -- a
+c -- d
+e -- f
+e -- k
+f -- g
+a -- h
+i -- d
+i -- j
+i -- h
+h -- k
+h -- j
+h -- g
+k -- d
+k -- j
+k -- g
+}
