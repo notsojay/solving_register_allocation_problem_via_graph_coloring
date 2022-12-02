@@ -6,11 +6,10 @@
 
 int main() 
 {
-	const auto &GRAPH = "small_bipartite.csv";
-	const auto NUM_REGS = 1;
+	const auto &GRAPH = "self.csv";
+	const auto NUM_REGS = 3;
 	
 	const auto &allocation = assignRegisters(GRAPH, NUM_REGS);
-	IGWriter::write(CSVReader::load(GRAPH), "small_bipartite_fail.dot", allocation);
 	
 //	const auto &GRAPH = "pairs.csv";
 //	const auto NUM_REGS = 2;
