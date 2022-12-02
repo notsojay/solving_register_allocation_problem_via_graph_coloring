@@ -181,4 +181,12 @@ TEST(RegisterAllocation, CompleteEightFail) {
   EXPECT_TRUE(allocation.empty());
 }
 
+  TEST(RegisterAllocation, selftest) {
+    const auto &GRAPH = "gtest/graphs/self.csv";
+    const auto NUM_REGS = 3;
+    
+    const auto &allocation = assignRegisters(GRAPH, NUM_REGS);
+    EXPECT_TRUE(!allocation.empty());
+  }
+
 } // end namespace
