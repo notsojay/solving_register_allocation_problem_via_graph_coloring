@@ -25,7 +25,7 @@ RegisterAssignment proj6::assignRegisters(const std::string &path_to_graph, int 
   for(size_t i = 0; i < sortedVertices.size(); ++i)
   {
     if(result.size() == sortedVertices.size()) return result;
-    if(registersCount > limitOfRegisters && limitOfRegisters < num_registers) return {};
+    if(registersCount >= limitOfRegisters && limitOfRegisters < num_registers) return {};
     if(currentRegister > num_registers) currentRegister = 1;
     Variable currentVertex = sortedVertices.at(i).second;
     if(!result.count(currentVertex) &&
